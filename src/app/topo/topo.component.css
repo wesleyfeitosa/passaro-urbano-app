@@ -1,0 +1,23 @@
+.menu {
+    background: #006ACB
+}
+
+.nav-link {
+    color: #C1E4FF
+}
+
+.nav-link:hover{
+    color: #FFF
+}
+
+.banner {
+    margin-top: 130px;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.active {
+    color: #FFF 
+}
