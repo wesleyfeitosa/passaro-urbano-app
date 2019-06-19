@@ -21,3 +21,6 @@
 .active {
     color: #FFF 
 }
+.lista {
+    position: absolute;
+}
