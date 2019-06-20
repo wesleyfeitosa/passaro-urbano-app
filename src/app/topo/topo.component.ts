@@ -12,7 +12,6 @@ import { OfertasService } from '../ofertas.service';
 export class TopoComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>;
-  public ofertas2: Oferta[];
   public subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) { }
@@ -23,7 +22,6 @@ export class TopoComponent implements OnInit {
       debounceTime(300), 
       distinctUntilChanged(), //busca se o termo for diferente do anterior
       switchMap((termo: string)=>{
-        console.log('requisição http para a api ', termo);
  
         if(termo.trim() === ''){
           //retornar um observable de array de ofertas vazio
@@ -32,17 +30,16 @@ export class TopoComponent implements OnInit {
         return this.ofertasService.pesquisaOfertas(termo);
       }),
       catchError ((erro)=> {
-        console.log(erro);
         return of([]);
       })
     )
-    this.ofertas.subscribe((ofertas: Oferta[]) => {
-      this.ofertas2 = ofertas
-    });
   }
 
   public pesquisa(termoDaBusca: string): void {
-    console.log('Keyup: ',termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca); 
+  }
+
+  public limpaPesquisa(): void{
+    this.subjectPesquisa.next('');
   }
 }
