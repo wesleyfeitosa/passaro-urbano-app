@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
@@ -18,6 +19,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from "@angular/common/locales/pt";
 import { DescricaoReduzida } from "./util/descricao-reduzida.pipe";
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
+import { OrdemCompraService } from './ordem-compra.service';
+import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +34,19 @@ import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
     ComoUsarComponent,
     OndeFicaComponent,
     DescricaoReduzida,
-    OrdemCompraComponent
+    OrdemCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule, 
     HttpClientModule, 
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [OfertasService, {provide: LOCALE_ID, useValue: 'pt'}],
+  providers: [
+    OfertasService, 
+    OrdemCompraService, 
+    {provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
