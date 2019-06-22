@@ -227,6 +227,27 @@
       "complemento": "301",
       "formaPagamento": "dinheiro",
       "id": 8
+    },
+    {
+      "endereco": "Rua José da Silva",
+      "numero": "33",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 9
+    },
+    {
+      "endereco": "Rua Joaquina ",
+      "numero": "123",
+      "complemento": "",
+      "formaPagamento": "dinheiro",
+      "id": 10
+    },
+    {
+      "endereco": "Rua Julieta",
+      "numero": "12",
+      "complemento": "altos",
+      "formaPagamento": "debito",
+      "id": 11
     }
   ]
 }
