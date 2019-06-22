@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra" >
-    <form novalidate #formulario="ngForm" (ngSubmit)="confirmarCompra()">
+    <form novalidate #formulario="ngForm" (ngSubmit)="confirmarCompra(formulario)">
     
       <h5>Sua Compra</h5>
       <hr />
@@ -62,6 +62,8 @@
       </div>
       <br />
 
+      <pre>Válido = {{formulario.valid | json}}</pre>
+      <pre>Inválido = {{formulario.invalid | json}}</pre>
       <pre>{{formulario.value | json}}</pre>
 
       <h5>Dados de entrega</h5>
@@ -72,12 +74,13 @@
         <div class="form-group col-md-6">
           <input 
             type="text" 
-            class="form-control is-invalid" 
+            class="form-control" 
             placeholder="Endereço" 
             autocomplete="off" 
-            minlength="5" 
-            required
             name="endereco"
+            required
+            minLength="3"
+            maxLength="120"
             ngModel
           >
           <small class="form-text text-danger">Endereço inválido</small>
@@ -86,12 +89,13 @@
         <div class="form-group col-md-2">
           <input 
             type="text" 
-            class="form-control is-valid" 
+            class="form-control" 
             placeholder="Número" 
             autocomplete="off" 
-            minlength="1"
-            required
             name="numero"
+            required
+            minLength="1"
+            maxLength="120"
             ngModel
           >
           <small class="form-text text-success">Ok</small>
@@ -104,6 +108,7 @@
             placeholder="Complemento" 
             autocomplete="off"
             name="complemento"
+            maxLength="120"
             ngModel
           >
         </div>
@@ -118,9 +123,10 @@
           
         <div class="form-group col-md-3">
           <select 
-            class="form-control is-invalid"
+            class="form-control"
             name="formaPagamento"
             ngModel
+            required
           >
             <option value="">Selecione uma opção</option>
             <option value="dinheiro">Dinheiro</option>
