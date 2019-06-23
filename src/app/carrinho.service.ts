@@ -17,8 +17,44 @@ export class CarrinhoService{
             oferta.descricao_oferta,
             oferta.valor,
             1
-        )
-        console.log(itemCarrinho);
+        );
+
+        let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+
+        if(itemCarrinhoEncontrado){
+            itemCarrinhoEncontrado.quantidade += 1;
+        } else {
+            this.itens.push(itemCarrinho);
+        }
+    }
+
+    public totalCarrinhoCompras(): number{
+        let total: number = 0;
+        this.itens.map((item: ItemCarrinho) => {
+            total += item.valor * item.quantidade;
+        });
+        return total;
+    }
+
+    public adicionarQuantidade(itemCarrinho: ItemCarrinho){
+
+        //incrementar quantidade
+        let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+        if(itemCarrinhoEncontrado){
+            itemCarrinhoEncontrado.quantidade += 1;
+        }
+    }
+
+    public decrementarQuantidade(itemCarrinho: ItemCarrinho){
+
+        //decrementar Quantidade
+        let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+        if(itemCarrinhoEncontrado){
+            itemCarrinhoEncontrado.quantidade -= 1;
+            if(itemCarrinhoEncontrado.quantidade == 0){
+                this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado), 1);
+            }
+        }
     }
 
 }

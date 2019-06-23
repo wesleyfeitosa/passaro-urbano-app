@@ -3,6 +3,7 @@ import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CarrinhoService } from "../carrinho.service";
+import { ItemCarrinho } from '../shared/item-carrinho.model';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -20,6 +21,7 @@ export class OrdemCompraComponent implements OnInit {
   });
 
   public idPedidoCompra: number;
+  public itensCarrinho: ItemCarrinho[] = [];
 
   constructor(
     private ordemCompraService: OrdemCompraService,
@@ -27,7 +29,8 @@ export class OrdemCompraComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('Array de itens do carrinho: ', this.carrinhoService.exibirItens());
+    this.itensCarrinho = this.carrinhoService.exibirItens();
+    console.log(this.itensCarrinho);
   }
 
   public confirmarCompra(): void {
@@ -38,17 +41,31 @@ export class OrdemCompraComponent implements OnInit {
       this.formulario.get('complemento').markAsTouched()
       this.formulario.get('formaPagamento').markAsTouched()
     } else {
-      let pedido = new Pedido(
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      );
-      this.ordemCompraService.efetivarCompra(pedido)
-        .subscribe((idPedido: number) => {
-          this.idPedidoCompra = idPedido
-          console.log(this.idPedidoCompra);
+
+      if(this.carrinhoService.exibirItens().length == 0){
+        alert('Você não selecionou nenhum item!');
+      } else {
+        
+        let pedido = new Pedido(
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento
+          );
+          this.ordemCompraService.efetivarCompra(pedido)
+          .subscribe((idPedido: number) => {
+            this.idPedidoCompra = idPedido
+            console.log(this.idPedidoCompra);
         })
+      }
     }
+  }
+
+  public adicionar(item: ItemCarrinho){
+    this.carrinhoService.adicionarQuantidade(item);
+  }
+
+  public decrementar(item: ItemCarrinho){
+    this.carrinhoService.decrementarQuantidade(item);
   }
 }

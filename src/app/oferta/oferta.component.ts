@@ -33,6 +33,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   public adicionarItemCarrinho(){
     this.carrinhoService.incluirItem(this.oferta);
+    console.log(this.carrinhoService.exibirItens());
   }
 
 }
