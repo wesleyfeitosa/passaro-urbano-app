@@ -248,6 +248,48 @@
       "complemento": "altos",
       "formaPagamento": "debito",
       "id": 11
+    },
+    {
+      "endereco": "Rua Joaquim Nabuco",
+      "numero": "2770",
+      "complemento": "Apartamento 1",
+      "formaPagamento": "debito",
+      "id": 12
+    },
+    {
+      "endereco": "Avn Abolicao",
+      "numero": "145",
+      "complemento": "Casa C",
+      "formaPagamento": "dinheiro",
+      "id": 13
+    },
+    {
+      "endereco": "Rua do Navegantes",
+      "numero": "24",
+      "complemento": "",
+      "formaPagamento": "debito",
+      "id": 14
+    },
+    {
+      "endereco": "Rua do Navegantes",
+      "numero": "24",
+      "complemento": "",
+      "formaPagamento": "debito",
+      "id": 15
+    },
+    {
+      "endereco": "Rua dos bebos",
+      "numero": "23",
+      "complemento": "301",
+      "formaPagamento": "dinheiro",
+      "id": 16
+    },
+    {
+      "endereco": "Rua do Programadores",
+      "numero": "88",
+      "complemento": "loquinha",
+      "formaPagamento": "dinheiro",
+      "id": 17
     }
   ]
 }
