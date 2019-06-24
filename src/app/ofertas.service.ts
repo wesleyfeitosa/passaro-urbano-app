@@ -7,7 +7,7 @@ import { map, retry } from "rxjs/operators";
 @Injectable()
 export class OfertasService {
 
-    private url_api = 'http://localhost:3000';
+    private url_api = 'https://my-json-server.typicode.com/wesleyfeitosa/passaro-urbano-app';
 
     constructor(private http: HttpClient){}
 

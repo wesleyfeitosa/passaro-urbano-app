@@ -8,7 +8,7 @@ import { Response } from 'selenium-webdriver/http';
 @Injectable()
 export class OrdemCompraService{
 
-    private url_api = 'http://localhost:3000';
+    private url_api = 'https://my-json-server.typicode.com/wesleyfeitosa/passaro-urbano-app';
     
     constructor(private http: HttpClient){ }
     
