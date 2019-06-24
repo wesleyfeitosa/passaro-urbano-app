@@ -57,4 +57,8 @@ export class CarrinhoService{
         }
     }
 
+    public limparCarrinho(){
+        this.itens = [];
+    }
+
 }

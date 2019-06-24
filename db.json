@@ -290,6 +290,54 @@
       "complemento": "loquinha",
       "formaPagamento": "dinheiro",
       "id": 17
+    },
+    {
+      "endereco": "Rua da Consolação",
+      "numero": "3008",
+      "complemento": "apartamento 301",
+      "formaPagamento": "debito",
+      "itens": [
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 1
+        },
+        {
+          "id": 6,
+          "img": {
+            "url": "/assets/ofertas/6/img1.jpg"
+          },
+          "titulo": "Academia de tiro",
+          "descricao_oferta": "Sessão de tiro dinâmico com Instrutor, Estande, Alvo e Equipamentos.",
+          "valor": 89.9,
+          "quantidade": 2
+        }
+      ],
+      "id": 18
+    },
+    {
+      "endereco": "Avn Paulista",
+      "numero": "1056",
+      "complemento": "apartamento 805",
+      "formaPagamento": "dinheiro",
+      "itens": [
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 2
+        }
+      ],
+      "id": 19
     }
   ]
 }
